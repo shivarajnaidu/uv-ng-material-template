@@ -5,7 +5,10 @@ import {
   MatButtonModule,
   MatCheckboxModule,
   MatToolbarModule,
-  MatInputModule
+  MatInputModule,
+  MatSidenavModule,
+  MatListModule,
+  MatIconModule,
 } from '@angular/material';
 
 const matComponents = [
@@ -13,6 +16,9 @@ const matComponents = [
   MatCheckboxModule,
   MatToolbarModule,
   MatInputModule,
+  MatSidenavModule,
+  MatListModule,
+  MatIconModule,
   BrowserAnimationsModule
 ];
 

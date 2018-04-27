@@ -12,4 +12,9 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
+  handleLogin(form) {
+  	const { value: data } = form;
+  	console.log(data);
+  }
+
 }

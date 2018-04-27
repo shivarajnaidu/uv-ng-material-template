@@ -1,11 +1,12 @@
-<mat-toolbar color="primary">
-  <span>Ng Material Template</span>
-
-  <!-- This fills the remaining space of the current row -->
-  <span class="example-fill-remaining-space"></span>
-
-  <span>
-    <a routerLink="/login">Login</a>
-  </span>
-</mat-toolbar>
-<router-outlet></router-outlet>
+<app-navbar-top [snav]="snav"></app-navbar-top>
+<mat-sidenav-container class="example-sidenav-container" fxLayout="column">
+  <mat-sidenav #snav id="side-nav">
+    <img class="user-avatar" src="/assets/user-avatar.svg">
+    <mat-nav-list >
+      <a mat-list-item [routerLink]="[navItem.path]" *ngFor="let navItem of sideNavMenuItems">{{navItem.text}}</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
