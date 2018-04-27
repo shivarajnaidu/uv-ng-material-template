@@ -1,6 +1,6 @@
 <div fxLayout="row" fxLayoutAlign="center center" [ngStyle]="{'margin-top': '10%'}">
   <section fxLayout="column" fxFlex="100%" fxFlex.gt-xs="50%" fxFlex.gt-sm="25%">
-    <h3>Login</h3>
+    <h3 [ngStyle.lt-sm]="{'paddingLeft': '10px'}">Login</h3>
     <form name="LoginForm" #loginForm="ngForm" fxLayout="column" fxFlex="100%" [ngStyle.xs]="{'margin': '3%'}" (ngSubmit)="handleLogin(loginForm)">
       <mat-form-field>
         <input matInput email placeholder="Email" type="email" name="email" ngModel required>
