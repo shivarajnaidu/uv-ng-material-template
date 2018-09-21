@@ -5,9 +5,15 @@
       (ngSubmit)="handleSubmit(loginForm)">
       <mat-form-field>
         <input matInput email placeholder="Email" type="email" name="email" ngModel required>
+        <mat-error>
+          Enter valid email ID
+        </mat-error>
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="Password" type="password" name="password" ngModel required>
+        <input matInput placeholder="Password" type="password" name="password" ngModel required minlength="6">
+        <mat-error>
+          Minimum password length should be 6
+        </mat-error>
       </mat-form-field>
       <div>
         <button mat-raised-button color="primary" [disabled]="loginForm.pristine || loginForm.invalid">Login</button>

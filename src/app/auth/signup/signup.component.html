@@ -1,19 +1,31 @@
-<div fxLayout="row" fxLayoutAlign="center center" [ngStyle]="{'margin-top': '10%'}">
+<div fxLayout="row" fxLayoutAlign="center center" [ngStyle]="{'margin-top': '5%'}">
   <section fxLayout="column" fxFlex="100%" fxFlex.gt-xs="50%" fxFlex.gt-sm="25%">
     <h3 [ngStyle.lt-sm]="{'paddingLeft': '10px'}">Signup</h3>
-    <form name="LoginForm" #signupForm="ngForm" fxLayout="column" fxFlex="100%" [ngStyle.xs]="{'margin': '3%'}"
+    <form name="SignupForm" #signupForm="ngForm" fxLayout="column" fxFlex="100%" [ngStyle.xs]="{'margin': '3%'}"
       (ngSubmit)="handleSubmit(signupForm)">
       <mat-form-field>
         <input matInput placeholder="Name" type="text" name="name" ngModel required>
+        <mat-error>
+          Please enter a valid name
+        </mat-error>
       </mat-form-field>
       <mat-form-field>
         <input matInput email placeholder="Email" type="email" name="email" ngModel required>
+        <mat-error>
+          Please enter a valid email address
+        </mat-error>
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="Password" type="password" name="password" ngModel required>
+        <input matInput placeholder="Password" type="password" name="password" ngModel required minlength="6">
+        <mat-error>
+          Minimum password length should be 6
+        </mat-error>
       </mat-form-field>
       <mat-form-field>
         <input matInput placeholder="Confirm Password" type="password" name="cPassword" ngModel required>
+        <mat-error>
+          Password Should Match
+        </mat-error>
       </mat-form-field>
       <div>
         <button mat-raised-button color="primary" [disabled]="signupForm.pristine || signupForm.invalid">Login</button>
