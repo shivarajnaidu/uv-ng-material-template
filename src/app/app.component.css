@@ -1,0 +1,18 @@
+.example-sidenav-container {
+	height: 100%;
+	min-height: 100vh;
+}
+
+#side-nav {
+	width: 200px;
+}
+
+.user-avatar {
+	max-width: 200px;
+	margin: 5px;
+}
+
+.sidenav-active-nav-list-item {
+	background: rgba(0,0,0,.05);
+	color: blue;
+}
