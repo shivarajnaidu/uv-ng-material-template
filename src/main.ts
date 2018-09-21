@@ -6,6 +6,9 @@ import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
 if (environment.production) {
+  // Remove console logs in production
+  window.console.log = () => {
+  };
   enableProdMode();
 }
 

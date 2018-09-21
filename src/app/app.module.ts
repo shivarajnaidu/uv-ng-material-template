@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeModule } from './home/home.module';
 import { SharedComponentsModule } from './components/shared-components.module';
 import { MatComponentsModule } from './mat-components/mat-components.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { MatComponentsModule } from './mat-components/mat-components.module';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     MatComponentsModule,
