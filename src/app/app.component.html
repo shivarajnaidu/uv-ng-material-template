@@ -1,9 +1,27 @@
 <app-navbar-top [snav]="snav"></app-navbar-top>
-<mat-sidenav-container class="example-sidenav-container" fxLayout="column">
-  <mat-sidenav #snav id="side-nav">
-    <img class="user-avatar" src="/assets/user-avatar.svg">
-    <mat-nav-list (click)="closeSideNav(snav)">
-      <a mat-list-item [routerLink]="[navItem.path]" routerLinkActive="sidenav-active-nav-list-item" *ngFor="let navItem of sideNavMenuItems">{{navItem.text}}</a>
+<mat-sidenav-container class="uv-sidenav-container" fxLayout="column">
+  <mat-sidenav #snav mode="side" id="side-nav" opened="true">
+    <div>
+      <img class="user-avatar" src="/assets/user-avatar.svg">
+    </div>
+    <mat-nav-list>
+      <ng-container *ngFor="let navItem of sideNavMenuItems">
+        <a *ngIf="navItem.path" class="side-nav-list-item" mat-list-item [routerLink]="[navItem.path]" [routerLinkActiveOptions]="{exact: true}"
+          routerLinkActive="sidenav-active-nav-list-item">
+          <mat-icon>{{navItem.icon}}</mat-icon> <span> {{navItem.text}}</span>
+        </a>
+        <a *ngIf="!navItem.path" class="side-nav-list-item" mat-list-item [routerLinkActiveOptions]="{exact: true}" routerLinkActive="sidenav-active-nav-list-item"
+          (click)="toggleMenuItems(navItem)">
+          <mat-icon>{{navItem.icon}}</mat-icon> <span> {{navItem.text}}</span>
+        </a>
+        <!-- Sub Menu Items -->
+        <mat-nav-list *ngIf="navItem.submenuItems" class="sub-menu-item" [ngClass]="{ 'sub-menu-expanded': navItem.isExpanded }">
+          <a mat-list-item *ngFor="let subMenuItem of navItem.submenuItems" [routerLink]="[subMenuItem.path]"
+            [routerLinkActiveOptions]="{exact: true}" routerLinkActive="sidenav-active-nav-list-item">
+            <mat-icon>{{subMenuItem.icon}}</mat-icon> <span> {{subMenuItem.text}}</span>
+          </a>
+        </mat-nav-list>
+      </ng-container>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
