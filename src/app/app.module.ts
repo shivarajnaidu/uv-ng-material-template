@@ -8,6 +8,8 @@ import { HomeModule } from './home/home.module';
 import { SharedComponentsModule } from './components/shared-components.module';
 import { MatComponentsModule } from './mat-components/mat-components.module';
 import { HttpClientModule } from '@angular/common/http';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     MatComponentsModule,
     HomeModule,
-    SharedComponentsModule
+    SharedComponentsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
