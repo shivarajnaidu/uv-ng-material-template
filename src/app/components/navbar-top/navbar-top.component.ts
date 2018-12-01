@@ -1,20 +1,27 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { UserService } from '../../services/user/user.service';
 
 @Component({
-  selector: 'app-navbar-top',
-  templateUrl: './navbar-top.component.html',
-  styleUrls: ['./navbar-top.component.css']
+    selector: 'app-navbar-top',
+    templateUrl: './navbar-top.component.html',
+    styleUrls: ['./navbar-top.component.css']
 })
 export class NavbarTopComponent implements OnInit {
 
-  @Input() snav;
+    @Input() snav;
 
-  constructor() { }
+    constructor(
+        private userServ: UserService
+    ) { }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
-  toggleSideNav() {
-    this.snav.toggle();
-  }
+    toggleSideNav() {
+        this.snav.toggle();
+    }
+
+    logout() {
+        this.userServ.logout();
+    }
 }

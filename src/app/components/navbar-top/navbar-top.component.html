@@ -4,6 +4,6 @@
   <!-- This fills the remaining space of the current row -->
   <span class="uv-fill-remaining-space"></span>
   <span fxHide.lt-sm="true">
-    <a routerLink="/account/login">Login</a>
+    <button mat-icon-button class="logout" (click)="logout()"><mat-icon>power_settings_new</mat-icon></button>
   </span>
 </mat-toolbar>
