@@ -6,12 +6,12 @@
     </div>
     <mat-nav-list>
       <ng-container *ngFor="let navItem of sideNavMenuItems">
-        <a *ngIf="navItem.path" class="side-nav-list-item" mat-list-item [routerLink]="[navItem.path]" [routerLinkActiveOptions]="{exact: true}"
-          routerLinkActive="sidenav-active-nav-list-item">
+        <a *ngIf="navItem.path" class="side-nav-list-item" mat-list-item [routerLink]="[navItem.path]"
+          [routerLinkActiveOptions]="{exact: true}" routerLinkActive="sidenav-active-nav-list-item">
           <mat-icon>{{navItem.icon}}</mat-icon> <span> {{navItem.text}}</span>
         </a>
-        <a *ngIf="!navItem.path" class="side-nav-list-item" mat-list-item [routerLinkActiveOptions]="{exact: true}" routerLinkActive="sidenav-active-nav-list-item"
-          (click)="toggleMenuItems(navItem)">
+        <a *ngIf="!navItem.path" class="side-nav-list-item" mat-list-item [routerLinkActiveOptions]="{exact: true}"
+          routerLinkActive="sidenav-active-nav-list-item" (click)="toggleMenuItems(navItem)">
           <mat-icon>{{navItem.icon}}</mat-icon> <span> {{navItem.text}}</span>
         </a>
         <!-- Sub Menu Items -->
@@ -22,6 +22,14 @@
           </a>
         </mat-nav-list>
       </ng-container>
+      <mat-nav-list><a *ngIf="!loggedIn" class="side-nav-list-item" mat-list-item routerLink="/account/login"
+          [routerLinkActiveOptions]="{exact: true}" routerLinkActive="sidenav-active-nav-list-item" (click)="toggleMenuItems(navItem)">
+          <mat-icon>verified_user</mat-icon><span>Login</span>
+        </a></mat-nav-list>
+      <mat-nav-list><a *ngIf="!loggedIn" class="side-nav-list-item" mat-list-item routerLink="/account/signup"
+          [routerLinkActiveOptions]="{exact: true}" routerLinkActive="sidenav-active-nav-list-item" (click)="toggleMenuItems(navItem)">
+          <mat-icon>verified_user</mat-icon><span>Register</span>
+        </a></mat-nav-list>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>

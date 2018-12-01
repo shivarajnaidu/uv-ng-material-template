@@ -9,10 +9,15 @@ import { UserService } from '../../services/user/user.service';
 export class NavbarTopComponent implements OnInit {
 
     @Input() snav;
-
+    LoggedIn = false;
     constructor(
         private userServ: UserService
-    ) { }
+    ) {
+        this.LoggedIn = this.userServ.isLoggedIn();
+        this.userServ.subject.subscribe((isLoggedIn) => {
+            this.LoggedIn = isLoggedIn;
+        });
+    }
 
     ngOnInit() {
     }
