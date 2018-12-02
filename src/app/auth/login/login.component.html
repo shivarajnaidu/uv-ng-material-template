@@ -15,6 +15,9 @@
           Minimum password length should be 6
         </mat-error>
       </mat-form-field>
+      <div [ngStyle]="{'margin-bottom': '5%'}">
+        <a class="forgot-link" routerLink="/account/forgot">Forgot password?</a>
+      </div>
       <div>
         <button mat-raised-button color="primary" [disabled]="loginForm.pristine || loginForm.invalid">Login</button>
       </div>

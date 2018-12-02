@@ -38,6 +38,7 @@ export class AuthService {
 
   forgotPassword(data) {
     const url = this.API_URLs.forgot;
+    console.log(data)
     return this.promisefyPostReq(url, data);
   }
 
