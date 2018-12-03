@@ -9,3 +9,7 @@
     width:100%;
     z-index: 100;
 }
+.logout {
+    color:white;
+    font-size: 10vh;
+}

@@ -9,6 +9,10 @@ import {
   MatSidenavModule,
   MatListModule,
   MatIconModule,
+  MatTableModule,
+  MatSortModule,
+  MatPaginatorModule,
+  MatSelectModule,
 } from '@angular/material';
 
 const matComponents = [
@@ -19,6 +23,10 @@ const matComponents = [
   MatSidenavModule,
   MatListModule,
   MatIconModule,
+  MatTableModule,
+  MatPaginatorModule,
+  MatSortModule,
+  MatSelectModule,
 ];
 
 

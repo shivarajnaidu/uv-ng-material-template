@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { sidenavMenuItems, SideNavItem } from './side-nav-menuitems';
+import { UserService } from './services/user/user.service';
 
 
 @Component({
@@ -11,9 +12,16 @@ export class AppComponent {
   title = 'uv-ng-material-template';
 
   sideNavMenuItems: SideNavItem[];
+  loggedIn = false;
 
-  constructor() {
+  constructor(
+    private userServ: UserService
+  ) {
     this.sideNavMenuItems = sidenavMenuItems;
+    this.loggedIn = this.userServ.isLoggedIn();
+    this.userServ.subject.subscribe((isLoggedIn) => {
+      this.loggedIn = isLoggedIn;
+    });
   }
 
 

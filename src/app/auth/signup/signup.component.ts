@@ -17,7 +17,7 @@ export class SignupComponent implements OnInit {
 
   async handleSubmit(form) {
     const data = form.value;
-    this.authServ.signup(data);
+    const signupResponse = await this.authServ.signup(data);
   }
 
 }
