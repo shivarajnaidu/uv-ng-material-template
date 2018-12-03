@@ -17,6 +17,7 @@ export class ProfileService {
   ) { }
 
   newUser(data) {
+    console.log(data)
     const url = this.API_URLs.users;
     return new Promise((resolve, reject) => {
       this.http.post(url, data)
@@ -28,6 +29,23 @@ export class ProfileService {
     const url = this.API_URLs.users;
     return new Promise((resolve, reject) => {
       this.http.get(url)
+        .subscribe(resolve, reject);
+    });
+  }
+
+  getUserById(id) {
+    const url = this.API_URLs.users;
+    return new Promise((resolve, reject) => {
+      this.http.get(`${url}/${id}`)
+        .subscribe(resolve, reject);
+    });
+  }
+
+  updateUser(data) {
+    const url = this.API_URLs.users;
+    const id = data.id;
+    return new Promise((resolve, reject) => {
+      this.http.put(`${url}/${id}`, data)
         .subscribe(resolve, reject);
     });
   }

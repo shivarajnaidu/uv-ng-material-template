@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProfileService } from '../../services/profile/profile.service';
 
 @Component({
   selector: 'app-create',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private profileServ: ProfileService
+  ) { }
 
   ngOnInit() {
   }
-
+  async handleSubmit(form) {
+    const data = form.value;
+    const profileRes = await this.profileServ.newUser(data);
+  }
 }

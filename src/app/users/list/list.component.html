@@ -30,10 +30,10 @@
         <th mat-header-cell *matHeaderCellDef> Action </th>
         <td mat-cell *matCellDef="let element">
           <button  mat-icon-button color="primary">
-            <mat-icon [routerLink]="[element._id, 'feedback' ]">create</mat-icon>
+            <mat-icon [routerLink]="[element._id, 'edit' ]">create</mat-icon>
           </button>
           <button  mat-icon-button color="danger">
-            <mat-icon >Delete</mat-icon>
+            <mat-icon (click)="deleteUser($event)" >Delete</mat-icon>
           </button>
         </td>
       </ng-container>

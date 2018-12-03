@@ -44,7 +44,7 @@ export class ListComponent implements OnInit {
     this.categoryList.filter = filterValue;
   }
 
-  async deleteData(inputEle) {
+  async deleteUser(inputEle) {
     const id = inputEle._id;
     const isOk = await Swal({
       title: 'Are you sure?',
