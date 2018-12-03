@@ -2,7 +2,9 @@
 <mat-sidenav-container class="uv-sidenav-container" fxLayout="column">
   <mat-sidenav #snav mode="side" id="side-nav" opened="true">
     <div>
+      <a routerLink="/account/profile">
       <img class="user-avatar" src="/assets/user-avatar.svg">
+      </a>
     </div>
     <mat-nav-list>
       <ng-container *ngFor="let navItem of sideNavMenuItems">
