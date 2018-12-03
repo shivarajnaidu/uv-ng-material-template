@@ -12,6 +12,10 @@ const routes: Routes = [
         loadChildren: './auth/auth.module#AuthModule'
     },
     {
+        path: 'users',
+        loadChildren: './users/users.module#UsersModule'
+    },
+    {
         path: '**',
         redirectTo: '/home'
     }
