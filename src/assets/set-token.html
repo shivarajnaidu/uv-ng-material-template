@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Set Token</title>
+    <script>
+            'use strict';
+            (function () {
+                window.addEventListener('message', receiveMessage, false);
+    
+                function receiveMessage(event) {
+                    if (event.origin !== 'http://localhost:3000') {
+                        return;
+                    }
+
+                    localStorage.setItem('token', event.data);
+                    location.href = '/';
+                }
+            })();
+        </script>
+</head>
+
+<body>
+  
+    <iframe style="display: none !important;" src="http://localhost:3000/token.html"></iframe>
+
+</body>
+
+</html>
