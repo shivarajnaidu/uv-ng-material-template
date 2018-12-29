@@ -1,4 +1,4 @@
-<div fxLayout="row" fxLayoutAlign="center center" [ngStyle]="{'margin-top': '10%'}">
+<div fxLayout="row" fxLayoutAlign="center center" [ngStyle]="{'margin-top': '10%'}" >
   <section fxLayout="column" fxFlex="100%" fxFlex.gt-xs="50%" fxFlex.gt-sm="25%">
     <h3 [ngStyle.lt-sm]="{'paddingLeft': '10px'}">Login</h3>
     <form name="LoginForm" #loginForm="ngForm" fxLayout="column" fxFlex="100%" [ngStyle.xs]="{'margin': '3%'}"
@@ -15,6 +15,9 @@
           Minimum password length should be 6
         </mat-error>
       </mat-form-field>
+      <div [ngStyle]="{'margin-bottom': '5%'}">
+        <a class="forgot-link" routerLink="/account/forgot">Forgot password?</a>
+      </div>
       <div>
         <button mat-raised-button color="primary" [disabled]="loginForm.pristine || loginForm.invalid">Login</button>
       </div>

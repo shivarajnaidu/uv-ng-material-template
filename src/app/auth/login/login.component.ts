@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth/auth.service';
+import { UserService } from '../../services/user/user.service';
+import { TokenService } from '../../services/token/token.service';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +11,9 @@ import { AuthService } from '../../services/auth/auth.service';
 export class LoginComponent implements OnInit {
 
   constructor(
-    private authServ: AuthService
+    private authServ: AuthService,
+    private userServ: UserService,
+    private tokenServ: TokenService
   ) { }
 
   ngOnInit() {
@@ -17,7 +21,9 @@ export class LoginComponent implements OnInit {
 
   async handleSubmit(form) {
     const data = form.value;
-    this.authServ.login(data);
+    const loginResponse: any = await this.authServ.login(data);
+    this.tokenServ.token = loginResponse.token;
+    this.userServ.subject.next(true);
   }
 
 }
