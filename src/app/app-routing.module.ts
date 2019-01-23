@@ -9,7 +9,7 @@ const routes: Routes = [
     },
     {
         path: 'dashboard',
-        component: HomeComponent
+        loadChildren: './dashboard/dashboard.module#DashboardModule'
     },
     {
         path: 'account',
