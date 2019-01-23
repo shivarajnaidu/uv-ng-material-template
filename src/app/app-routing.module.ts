@@ -8,6 +8,10 @@ const routes: Routes = [
         component: HomeComponent
     },
     {
+        path: 'dashboard',
+        component: HomeComponent
+    },
+    {
         path: 'account',
         loadChildren: './auth/auth.module#AuthModule'
     },
@@ -17,12 +21,12 @@ const routes: Routes = [
     },
     {
         path: '**',
-        redirectTo: '/home'
+        redirectTo: '/'
     }
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled'})],
+    imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' })],
     exports: [RouterModule]
 })
 export class AppRoutingModule { }

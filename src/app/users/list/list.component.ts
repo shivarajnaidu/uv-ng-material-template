@@ -46,7 +46,7 @@ export class ListComponent implements OnInit {
 
   async deleteUser(inputEle) {
     const id = inputEle._id;
-    const isOk = await Swal({
+    const isOk = await Swal.fire({
       title: 'Are you sure?',
       text: 'You won\'t be able to revert this!',
       type: 'warning',

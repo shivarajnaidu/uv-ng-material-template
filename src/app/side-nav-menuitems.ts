@@ -13,7 +13,7 @@ export const sidenavMenuItems: SideNavItem[] = [
         icon: 'home',
     },
     {
-        path: '/dash',
+        path: '/dashboard',
         text: 'Dashboard',
         icon: 'dashboard',
     },
