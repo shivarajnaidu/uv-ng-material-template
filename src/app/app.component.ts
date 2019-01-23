@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { sidenavMenuItems, SideNavItem } from './side-nav-menuitems';
-import { UserService } from './services/user/user.service';
+import { AuthService } from './services/auth/auth.service';
 
 
 @Component({
@@ -15,24 +15,14 @@ export class AppComponent {
   loggedIn = false;
 
   constructor(
-    private userServ: UserService
+    private authServ: AuthService
   ) {
     this.sideNavMenuItems = sidenavMenuItems;
-    this.loggedIn = this.userServ.isLoggedIn();
-    this.userServ.subject.subscribe((isLoggedIn) => {
+    this.loggedIn = this.authServ.isLoggedIn;
+    this.authServ.subject.subscribe((isLoggedIn) => {
       this.loggedIn = isLoggedIn;
     });
   }
-
-
-  // sideNavMenuItems = [
-  //   ['/', 'Home'],
-  //   ['/dash', 'Dashboard'],
-  //   ['/users', 'Users'],
-  //   ['/user/new', 'New User'],
-  //   ['/account/login', 'Login'],
-  //   ['/account/signup', 'Register'],
-  // ].map(([path, text]) => ({ path, text }));
 
   closeSideNav(snav) {
     snav.close();

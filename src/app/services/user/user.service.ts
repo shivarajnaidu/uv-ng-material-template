@@ -2,14 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { SettingsService } from '../settings/settings.service';
 import { TokenService } from '../token/token.service';
-import { Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
+import { AuthService } from '../auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  subject = new BehaviorSubject<boolean>(false);
 
   API_URLs = {
     users: `${this.settingServ.apiURL}/api/users`
@@ -19,9 +17,9 @@ export class UserService {
     private http: HttpClient,
     private settingServ: SettingsService,
     private tokenServ: TokenService,
-    private router: Router
+    private authServ: AuthService
   ) {
-    this.subject.next(!!this.tokenServ.token);
+    this.authServ.subject.next(!!this.tokenServ.token);
   }
 
   getUser(id) {
@@ -29,12 +27,4 @@ export class UserService {
     return this.http.get(id);
   }
 
-  logout() {
-    this.tokenServ.token = '';
-    this.subject.next(false);
-    this.router.navigate(['/account/login']);
-  }
-  isLoggedIn() {
-    return !!this.tokenServ.token;
-  }
 }

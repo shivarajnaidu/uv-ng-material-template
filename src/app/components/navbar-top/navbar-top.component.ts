@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { UserService } from '../../services/user/user.service';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
     selector: 'app-navbar-top',
@@ -11,10 +11,10 @@ export class NavbarTopComponent implements OnInit {
     @Input() snav;
     LoggedIn = false;
     constructor(
-        private userServ: UserService
+        private authServ: AuthService
     ) {
-        this.LoggedIn = this.userServ.isLoggedIn();
-        this.userServ.subject.subscribe((isLoggedIn) => {
+        this.LoggedIn = this.authServ.isLoggedIn;
+        this.authServ.subject.subscribe((isLoggedIn) => {
             this.LoggedIn = isLoggedIn;
         });
     }
@@ -27,6 +27,6 @@ export class NavbarTopComponent implements OnInit {
     }
 
     logout() {
-        this.userServ.logout();
+        this.authServ.logout();
     }
 }

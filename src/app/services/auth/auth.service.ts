@@ -1,11 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { SettingsService } from '../settings/settings.service';
+import { TokenService } from '../token/token.service';
+import { BehaviorSubject } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+
+  subject = new BehaviorSubject<boolean>(false);
 
   API_URLs = {
     login: `${this.settingServ.apiURL}/api/auth/login`,
@@ -16,33 +21,38 @@ export class AuthService {
 
   constructor(
     private http: HttpClient,
-    private settingServ: SettingsService
+    private settingServ: SettingsService,
+    private tokenServ: TokenService,
+    private router: Router
   ) { }
 
-  private promisefyPostReq(url, data) {
-    return new Promise((resolve, reject) => {
-      this.http.post(url, data)
-        .subscribe(resolve, reject);
-    });
+
+  get isLoggedIn() {
+    return !!this.tokenServ.token;
   }
 
   login(data) {
-    const url = this.API_URLs.login;
-    return this.promisefyPostReq(url, data);
+    return this.http.post(this.API_URLs.login, data).toPromise();
   }
 
   signup(data) {
-    const url = this.API_URLs.signup;
-    return this.promisefyPostReq(url, data);
+    return this.http.post(this.API_URLs.signup, data).toPromise();
+  }
+
+  logout() {
+    this.tokenServ.token = '';
+    this.subject.next(false);
+    this.router.navigate(['/account/login']);
   }
 
   forgotPassword(data) {
     const url = this.API_URLs.forgot;
-    return this.promisefyPostReq(url, data);
+    return this.http.post(url, data).toPromise();
   }
 
   resetPassword(data) {
     const url = this.API_URLs.reset;
-    return this.promisefyPostReq(url, data);
+    return this.http.post(url, data).toPromise();
   }
+
 }
