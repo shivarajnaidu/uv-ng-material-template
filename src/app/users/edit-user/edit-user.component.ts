@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { ProfileService } from '../../services/profile/profile.service';
+import { ProfileService } from 'src/app/services/profile/profile.service';
 
 @Component({
-  selector: 'app-edit',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.css']
+  selector: 'app-edit-user',
+  templateUrl: './edit-user.component.html',
+  styleUrls: ['./edit-user.component.css']
 })
-export class EditComponent implements OnInit {
+export class EditUserComponent implements OnInit {
+
   EditProfile: any;
 
   constructor(
@@ -31,5 +32,4 @@ export class EditComponent implements OnInit {
   }
   ngOnInit() {
   }
-
 }

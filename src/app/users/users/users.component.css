@@ -6,3 +6,7 @@
     bottom: 1em;
     right: 1em;
 }
+
+.mat-table {
+    width: 100%;
+}

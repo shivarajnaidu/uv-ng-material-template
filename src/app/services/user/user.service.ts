@@ -27,4 +27,10 @@ export class UserService {
     return this.http.get(id);
   }
 
+
+  getUsers() {
+    return this.http.get(this.API_URLs.users);
+  }
+
+
 }

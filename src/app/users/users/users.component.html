@@ -1,0 +1,49 @@
+<div fxLayout="column" fxFlex="100%" style="margin-top: 50px;">
+  <section fxLayout="column" fxFlexfill>
+    <!-- <mat-form-field class="filter-field">
+      <input matInput [formControl]="searchCtrl" placeholder="Filter">
+    </mat-form-field> -->
+
+    <!-- <table mat-table class="mat-elevation-z8">
+    </table> -->
+    <mat-table style="display: none">
+      <mat-header-row *matHeaderRowDef="[]"></mat-header-row>
+    </mat-table>
+
+    <p *ngIf="users.length === 0">No Users Found</p>
+
+    <table class="mat-elevation-z2 mat-table" *ngIf="users.length > 0">
+      <thead>
+        <tr class="mat-header-row">
+          <th class="mat-header-cell">S No</th>
+          <th class="mat-header-cell">Name</th>
+          <th class="mat-header-cell">Email</th>
+          <th class="mat-header-cell">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="mat-row" *ngFor="let user of users; index as i; trackBy: trackByFn">
+          <td class="mat-cell">{{i + 1}}</td>
+          <td class="mat-cell">{{user.firstName + ' ' + user.lastName}}</td>
+          <td class="mat-cell">{{user.email}}</td>
+          <td class="mat-cell">
+            <button color="primary" mat-icon-button>
+              <mat-icon aria-label="Edit">edit</mat-icon>
+            </button>
+            <button color="warn" mat-icon-button>
+              <mat-icon aria-label="Delete">delete</mat-icon>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+  </section>
+
+  <div class="bottom-create-button">
+    <button mat-fab color="accent" routerLink="new">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+</div>
