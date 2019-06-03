@@ -9,9 +9,9 @@ import { AuthService } from '../auth/auth.service';
 })
 export class UserService {
 
-  API_URLs = {
-    users: `${this.settingServ.apiURL}/api/users`
-  };
+  private get usersAPI() {
+    return `${this.settingServ.apiURL}/api/users`;
+  }
 
   constructor(
     private http: HttpClient,
@@ -23,13 +23,13 @@ export class UserService {
   }
 
   getUser(id) {
-    const url = `${this.API_URLs.users}/${id}`;
-    return this.http.get(id);
+    const url = `${this.usersAPI}/${id}`;
+    return this.http.get(url);
   }
 
 
   getUsers() {
-    return this.http.get(this.API_URLs.users);
+    return this.http.get(this.usersAPI);
   }
 
 

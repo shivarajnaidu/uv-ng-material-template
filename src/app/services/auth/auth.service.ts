@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
-  subject = new BehaviorSubject<boolean>(false);
+  subject = new BehaviorSubject<boolean>(!!this.isLoggedIn);
 
   API_URLs = {
     login: `${this.settingServ.apiURL}/api/auth/login`,
