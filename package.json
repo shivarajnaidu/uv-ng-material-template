@@ -21,7 +21,7 @@
     "@angular/material": "^8.2.3",
     "@angular/platform-browser": "^8.2.14",
     "@angular/platform-browser-dynamic": "^8.2.14",
-    "@angular/pwa": "^0.803.23",
+    "@angular/pwa": "~0.803.23",
     "@angular/router": "^8.2.14",
     "@angular/service-worker": "^8.2.14",
     "core-js": "^3.6.4",
@@ -31,7 +31,7 @@
     "rxjs": "~6.5.4",
     "sweetalert2": "^9.7.0",
     "tslib": "^1.10.0",
-    "zone.js": "~0.10.2"
+    "zone.js": "~0.9.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.803.23",
@@ -41,7 +41,7 @@
     "@types/jasmine": "~3.5.1",
     "@types/jasminewd2": "~2.0.8",
     "@types/node": "~13.5.0",
-    "codelyzer": "~5.2.1",
+    "codelyzer": "^5.0.1",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.4.1",
