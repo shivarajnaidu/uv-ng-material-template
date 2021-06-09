@@ -1,0 +1,34 @@
+<mat-toolbar class="d-flex justify-content-between mat-elevation-z2">
+    <div class="d-flex">
+        <button mat-icon-button (click)="toggleSideNav()">
+            <mat-icon>menu</mat-icon>
+        </button>
+
+        <!-- Titles Will change dynamically based on the page -->
+        <h1 class="mat-h3">{{title}}</h1>
+    </div>
+    <div>
+        <button mat-icon-button aria-label="Account">
+            <mat-icon>notifications</mat-icon>
+        </button>
+
+        <!-- Account Dropdown Menu : starts-->
+        <button mat-button [matMenuTriggerFor]="menu" aria-label="Account" *ngIf="isLoggedIn">
+            <mat-icon>account_circle</mat-icon>
+            <b class="d-none d-sm-inline-block pl-1">Jon Doe</b>
+            <mat-icon class="d-none d-sm-inline-block">arrow_drop_down</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button (click)="openChangePasswordModal()" mat-menu-item>
+                <mat-icon color="accent">security</mat-icon>
+                <span>Change Password</span>
+            </button>
+            <button (click)="logout()" mat-menu-item>
+                <mat-icon color="warn">power_settings_new</mat-icon>
+                <span>Logout</span>
+            </button>
+        </mat-menu>
+        <!-- Account Dropdown Menu : ends -->
+
+    </div>
+</mat-toolbar>

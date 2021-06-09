@@ -1,9 +1,0 @@
-<mat-toolbar color="primary" class="uv-mat-toolbar mat-elevation-z4">
-  <button fxHide.gt-md="true" mat-icon-button (click)="toggleSideNav()"><mat-icon>menu</mat-icon></button>
-  <span>Ng Material Template</span>
-  <!-- This fills the remaining space of the current row -->
-  <span class="uv-fill-remaining-space"></span>
-  <span fxHide.lt-sm="true">
-    <button *ngIf="LoggedIn" mat-icon-button class="logout" (click)="logout()"><mat-icon>power_settings_new</mat-icon></button>
-  </span>
-</mat-toolbar>

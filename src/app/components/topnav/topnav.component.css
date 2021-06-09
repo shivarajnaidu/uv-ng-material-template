@@ -1,0 +1,16 @@
+/* Toolbar styles */
+
+mat-toolbar {
+    background-color: white;
+    min-height: 64px;
+    color: #605e5e;
+    /* background: var(--app-gradient-primary-fallback);
+    background: var(--app-gradient-primary) !important;
+    position: absolute;
+    width:100%;
+    z-index: 100; */
+}
+
+mat-toolbar h1 {
+    line-height: 2;
+}

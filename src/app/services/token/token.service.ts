@@ -5,28 +5,23 @@ import { Injectable } from '@angular/core';
 })
 export class TokenService {
 
-
-  private tokenKey = 'token';
+  private tokenKey = 'AUTH_TOKEN';
 
   constructor() { }
 
-  get token() {
-    return (localStorage.getItem(this.tokenKey) || '');
+  saveToken(data: any) {
+    window.localStorage.setItem(this.tokenKey, data);
   }
 
-  set token(token) {
-    localStorage.setItem(this.tokenKey, token);
+  getToken() {
+    return window.localStorage.getItem(this.tokenKey);
   }
 
-  getDecodedToken(token = this.token) {
-    if (!token) {
-      throw TypeError('Token Not Exist');
-    }
-
-    const partialToken = token.split('.')[1];
-    const decodedData = JSON.parse(window.atob(partialToken));
-    return decodedData;
+  isTokenExist() {
+    return this.getToken() ? true : false;
   }
 
-
+  removeToken() {
+    window.localStorage.removeItem(this.tokenKey);
+  }
 }

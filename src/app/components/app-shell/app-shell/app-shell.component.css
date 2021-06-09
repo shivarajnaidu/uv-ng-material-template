@@ -1,0 +1,65 @@
+.uv-sidenav-container {
+    width: 100%;
+    height: 100%;
+}
+
+.uv-sidenav-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: #F8FAFB;
+}
+
+#side-nav {
+    min-width: 20vw;
+    background: var(--app-gradient-primary-reverse) !important;
+    /* background-color: #262F44; */
+    color: white;
+}
+
+.sidenav-navlink-text {
+    color: white;
+}
+
+.mat-list-item-content {
+    padding-left: 3rem;
+    color: white;
+    padding-left: 40px !important;
+}
+
+/* Activated Route Nav Styles */
+
+.mat-list-item.active-link mat-icon, .mat-list-item.active-link .sidenav-navlink-text {
+    color: var(--activated-sidenav-item-color);
+}
+
+.mat-list-item.active-link {
+    background-color: var(--activated-sidenav-item-background);
+}
+
+/* Brand header */
+
+.uv-brand {
+    /* background-color: inherit; */
+    /* background-color: #121723; */
+    padding-left: 50px;
+    height: 64px;
+}
+
+.uv-brand span {
+    font-weight: bold;
+    font-size: 1.5rem;
+    vertical-align: middle;
+}
+
+.uv-brand img {
+    width: 45px;
+}
+
+/* for large screens */
+
+@media only screen and (min-width: 1500px) {
+    #side-nav {
+        min-width: 15vw;
+    }
+}

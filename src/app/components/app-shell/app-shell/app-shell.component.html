@@ -1,0 +1,31 @@
+<mat-sidenav-container class="uv-sidenav-container">
+
+    <!-- Sidenav Starts -->
+
+    <mat-sidenav [opened]="!mobileQuery.matches" class="mat-elevation-z2 px-0" #snav
+        [mode]="mobileQuery.matches ? 'over' : 'side'" id="side-nav" [opened]="true">
+        <div class="uv-brand d-flex align-items-center">
+            <img src="/assets/logos/angular.svg" decoding="async" loading="lazy" alt="App logo"> <span>My App</span>
+        </div>
+
+        <!-- NavList -->
+
+        <mat-nav-list>
+            <a mat-list-item [routerLink]="navItem.path" routerLinkActive="active-link"
+                *ngFor="let navItem of menuItems">
+                <span class="d-flex mat-list-item-content">
+                    <mat-icon>{{navItem.icon}}</mat-icon>
+                    <span class="sidenav-navlink-text pl-2">{{navItem.text}}</span>
+                </span>
+            </a>
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <!-- Sidenav Ends -->
+
+    <mat-sidenav-content class="uv-sidenav-content">
+        <app-topnav [snav]="snav"></app-topnav>
+
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
