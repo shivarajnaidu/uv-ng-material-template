@@ -3,10 +3,10 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 body {
-  --uv-gradient-primary: linear-gradient(to right, #4776e6, #8e54e9);
-  --uv-gradient-primary-reverse: linear-gradient(to bottom, #4776e6, #8e54e9);
+  --app-gradient-primary: linear-gradient(to right, #4776e6, #8e54e9);
+  --app-gradient-primary-reverse: linear-gradient(to bottom, #4776e6, #8e54e9);
 
-  /* --uv-gradient-primary: linear-gradient(to right, #373b44, #4286f4); */
-  /* --uv-gradient-primary-reverse: linear-gradient(to bottom, #373b44, #4286f4); */
-  --uv-gradient-primary-fallback: #373b44;
+  /* --app-gradient-primary: linear-gradient(to right, #373b44, #4286f4); */
+  /* --app-gradient-primary-reverse: linear-gradient(to bottom, #373b44, #4286f4); */
+  --app-gradient-primary-fallback: #373b44;
 }
