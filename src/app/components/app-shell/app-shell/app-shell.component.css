@@ -7,14 +7,18 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-    background-color: #F8FAFB;
+    background-color: #f8fafb;
 }
 
 #side-nav {
     min-width: 20vw;
     background: var(--app-gradient-primary-reverse) !important;
-    /* background-color: #262F44; */
     color: white;
+}
+
+.side-nav-items {
+    padding: 0.7rem 1.3rem;
+    cursor: pointer;
 }
 
 .sidenav-navlink-text {
@@ -30,19 +34,46 @@
 
 /* Activated Route Nav Styles */
 
-.mat-mdc-list-item.active-link mat-icon, .mat-list-item.active-link .sidenav-navlink-text {
+.active-link mat-icon,
+.mat-list-item.active-link .sidenav-navlink-text {
     color: var(--activated-sidenav-item-color);
 }
 
-.mat-mdc-list-item.active-link {
+.active-link {
     background-color: var(--activated-sidenav-item-background);
+}
+
+/* sub menu class */
+.hide-sub-menu {
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s ease-in-out;
+}
+
+.show-sub-menu {
+    height: auto;
+    opacity: 1;
+    transition: all 0.5s;
+}
+
+.sub-menu-item {
+    margin: 0 15px;
+    padding: 0.7rem;
+    border-radius: 5px;
+}
+
+.sub-menu-item.active-link-sub {
+    background-color: var(--activated-sidenav-item-background);
+}
+.sub-menu-item.active-link-sub >.sidenav-navlink-text,
+mat-icon {
+    color: var(--activated-sidenav-item-color);
 }
 
 /* Brand header */
 
 .uv-brand {
-    /* background-color: inherit; */
-    /* background-color: #121723; */
     padding-left: 50px;
     height: 64px;
 }
