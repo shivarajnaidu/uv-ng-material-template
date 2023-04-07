@@ -4,9 +4,9 @@ import { AppShellComponent } from './app-shell/app-shell.component';
 import { RouterModule } from '@angular/router';
 import { TopnavModule } from '../topnav/topnav.module';
 import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
+import { MatLegacyButtonModule as MatButtonModule } from '@angular/material/legacy-button';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatListModule } from '@angular/material/list';
+import { MatLegacyListModule as MatListModule } from '@angular/material/legacy-list';
 
 const materialModules = [
   MatSidenavModule,
