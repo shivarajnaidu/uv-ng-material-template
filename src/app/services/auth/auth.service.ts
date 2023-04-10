@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { SettingsService } from '../settings/settings.service';
 import { Router } from '@angular/router';
 import { TokenService } from '../token/token.service';
+import { lastValueFrom } from 'rxjs';
 
 interface LoginResponse {
   token: string;
@@ -22,7 +23,7 @@ export class AuthService {
 
   login(data: any) {
     const url = `${this.settings.API_BASE_URL}/auth/login`;
-    return this.http.post<LoginResponse>(url, data).toPromise();
+    return lastValueFrom(this.http.post<LoginResponse>(url, data));
   }
 
   isLoggedIn() {
