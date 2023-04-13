@@ -39,6 +39,7 @@ export const menuItems = [
         path: ['/users'],
         subMenus: [],
     },
+    
     {
         icon: 'money',
         text: 'Profile',
