@@ -16,8 +16,12 @@
     color: white;
 }
 
+.mat-mdc-nav-list{
+    padding:0 10px 0 50px;
+}
+
 .side-nav-items {
-    padding: 0.7rem 1.3rem;
+    padding: 1rem 1.3rem 1rem 0;
     cursor: pointer;
 }
 

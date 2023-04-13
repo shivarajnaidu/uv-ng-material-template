@@ -8,6 +8,7 @@ export const menuItems = [
     {
         icon: 'group_work',
         text: 'Master',
+        path: [],
         subMenus: [
             {
                 icon: 'category',
