@@ -1,1 +1,47 @@
-<p>signup works!</p>
+<div class="container h-100">
+  <div class="row h-100 align-items-center justify-content-center">
+      <div class="col-12 col-md-4">
+          <form class="d-flex flex-column gap-3" [formGroup]="signupForm">
+              <!-- Name -->
+              <mat-form-field class="w-100" appearance="outline">
+                  <mat-label>Name</mat-label>
+                  <input formControlName="name" matInput placeholder="Enter Your Name">
+                  <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+              </mat-form-field>
+
+              <!-- Email -->
+              <mat-form-field class="w-100" appearance="outline">
+                  <mat-label>Email</mat-label>
+                  <input type="email" email formControlName="email" matInput placeholder="Enter Your Email">
+              </mat-form-field>
+
+
+              <!-- Mobile -->
+              <mat-form-field class="w-100" appearance="outline">
+                  <mat-label>Mobile</mat-label>
+                  <input type="tel" formControlName="mobile" matInput placeholder="Enter Your Mobile Number">
+                  <mat-hint>Eg +91 9498002109</mat-hint>
+              </mat-form-field>
+
+               <!-- Password -->
+               <mat-form-field class="w-100" appearance="outline">
+                  <mat-label>Password</mat-label>
+                  <input type="password" formControlName="password" matInput placeholder="Enter Password">
+                  <!-- <mat-hint>You can use spaces and special chars</mat-hint> -->
+                  <mat-hint>Eg &#64;#!%787&#64;</mat-hint>
+              </mat-form-field>
+
+               <!-- Confirm Password -->
+               <mat-form-field class="w-100" appearance="outline">
+                  <mat-label>Confirm Password</mat-label>
+                  <input type="password" formControlName="cPassword" matInput placeholder="Re-Enter Password">
+              </mat-form-field>
+
+              <div>
+                  <button mat-flat-button color="primary">Signup</button>
+              </div>
+              <p><small>Already have an account ? <a routerLink="/login">Login</a></small></p>
+          </form>
+      </div>
+  </div>
+</div>
