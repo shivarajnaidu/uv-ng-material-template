@@ -25,18 +25,23 @@ export const routes: Routes = [
       {
         path: 'dashboard',
         title: 'Dashboard',
-        loadChildren: () => import('./pages/dashboard/dashboard.component').then(m => m.DashboardComponent),
+        loadComponent: () => import('./pages/dashboard/dashboard.component').then(m => m.DashboardComponent),
       },
       {
         path: 'users',
         title: 'Users',
-        loadChildren: () => import('./pages/users/users.component').then(m => m.UsersComponent),
+        loadComponent: () => import('./pages/users/users.component').then(m => m.UsersComponent),
       },
       {
         path: 'products',
         title: 'Products',
-        loadChildren: () => import('./pages/products/products.component').then(m => m.ProductsComponent),
-      }
+        loadComponent: () => import('./pages/products/products.component').then(m => m.ProductsComponent),
+      },
+      {
+        path: '**',
+        pathMatch: 'full',
+        redirectTo: '/dashbaord',
+      },
     ]
   },
   {
