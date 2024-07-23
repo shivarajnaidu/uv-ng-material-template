@@ -1,1 +1,37 @@
-<p>login works!</p>
+<div class="container h-100">
+  <div class="row h-100 align-items-center justify-content-center">
+    <div class="col-12 col-md-4">
+      <form class="d-flex flex-column gap-3" [formGroup]="loginForm">
+        <!-- Email -->
+        <mat-form-field class="w-100" appearance="outline">
+          <mat-label>Email</mat-label>
+          <input type="email" email formControlName="email" matInput placeholder="Enter Your Email">
+          @if (loginForm.get('email')?.hasError('email') && !loginForm.get('email')?.hasError('required')) {
+          <mat-error>Please enter a valid email address</mat-error>
+          }
+          @if (loginForm.get('email')?.hasError('required')) {
+          <mat-error>Email is <strong>required</strong></mat-error>
+          }
+        </mat-form-field>
+
+
+        <!-- Password -->
+        <mat-form-field class="w-100" appearance="outline">
+          <mat-label>Password</mat-label>
+          <input type="password" formControlName="password" matInput placeholder="Enter Password">
+          <mat-hint>{{passwordHintText}}</mat-hint>
+          @if (loginForm.get('password')?.hasError('required')) {
+          <mat-error>Password is <strong>required</strong></mat-error>
+          }
+        </mat-form-field>
+
+        <div>
+          <div>
+            <button mat-flat-button color="primary">Login</button>
+          </div>
+          <p><small>Don't have an account ? <a routerLink="/signup">Signup</a></small></p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
