@@ -8,6 +8,7 @@
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
 @include mat.core();
+@include mat.all-component-typographies();
 
 // Define the theme object.
 $uv-ng-material-template-theme: mat.define-theme((
@@ -27,6 +28,8 @@ $uv-ng-material-template-theme: mat.define-theme((
 :root {
   @include mat.all-component-themes($uv-ng-material-template-theme);
 }
+
+// @include mat.color-variants-backwards-compatibility($uv-ng-material-template-theme);
 
 // Comment out the line below if you want to use the pre-defined typography utility classes.
 // For more information: https://material.angular.io/guide/typography#using-typography-styles-in-your-application.

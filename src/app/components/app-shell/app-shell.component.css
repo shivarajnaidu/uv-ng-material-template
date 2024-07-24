@@ -1,0 +1,101 @@
+.uv-sidenav-container {
+  width: 100%;
+  height: 100%;
+}
+
+.uv-sidenav-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #f8fafb;
+}
+
+#side-nav {
+  min-width: 20vw;
+  background: var(--app-gradient-primary-reverse) !important;
+  color: white;
+}
+
+.mat-mdc-nav-list{
+  padding:0 10px 0 50px;
+}
+
+.side-nav-items {
+  padding: 1rem 1.3rem 1rem 0;
+  cursor: pointer;
+}
+
+.sidenav-navlink-text {
+  color: white;
+}
+
+/* TODO(mdc-migration): The following rule targets internal classes of list that may no longer apply for the MDC version. */
+.mat-list-item-content {
+  padding-left: 3rem;
+  color: white;
+  padding-left: 40px !important;
+}
+
+/* Activated Route Nav Styles */
+
+.active-link mat-icon,
+.mat-list-item.active-link .sidenav-navlink-text {
+  color: var(--activated-sidenav-item-color);
+}
+
+.active-link {
+  background-color: var(--activated-sidenav-item-background);
+}
+
+/* sub menu class */
+.hide-sub-menu {
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  transition: height 0.3s ease-in-out;
+}
+
+.show-sub-menu {
+  height: auto;
+  opacity: 1;
+  transition: all 0.5s;
+}
+
+.sub-menu-item {
+  margin: 0 15px;
+  padding: 0.7rem;
+  border-radius: 5px;
+}
+
+.sub-menu-item.active-link-sub {
+  background-color: var(--activated-sidenav-item-background);
+}
+.sub-menu-item.active-link-sub >.sidenav-navlink-text,
+mat-icon {
+  color: var(--activated-sidenav-item-color);
+}
+
+/* Brand header */
+
+.uv-brand {
+  padding-left: 50px;
+  height: 64px;
+}
+
+.uv-brand span {
+  font-weight: bold;
+  font-size: 1.5rem;
+  vertical-align: middle;
+}
+
+.uv-brand img {
+  width: 45px;
+}
+
+/* for large screens */
+
+@media only screen and (min-width: 1500px) {
+  #side-nav {
+      min-width: 15vw;
+  }
+}

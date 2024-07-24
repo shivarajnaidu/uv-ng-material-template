@@ -1,1 +1,54 @@
-<router-outlet></router-outlet>
+<mat-sidenav-container class="uv-sidenav-container">
+
+  <!-- Sidenav Starts -->
+
+  <mat-sidenav [opened]="!mobileQuery.matches" class="mat-elevation-z2 px-0" #snav
+    [mode]="mobileQuery.matches ? 'over' : 'side'" id="side-nav" [opened]="true">
+    <div class="uv-brand d-flex align-items-center">
+      <img src="/assets/logo/angular.svg" decoding="async" loading="lazy" alt="App logo"> <span>My App</span>
+    </div>
+
+    <!-- NavList -->
+    <mat-nav-list>
+      @for (navItem of menuItems; track navItem) {
+        <section
+          (click)="mobileQuery.matches && snav?.toggle()">
+          <div (click)="setSubMenu(navItem.text)" class="side-nav-items d-flex justify-content-between align-items-center"
+            mat-list-item [routerLink]="navItem.path" routerLinkActive="active-link">
+            <div class="d-flex align-items-center">
+              <mat-icon>{{ navItem.icon }}</mat-icon>
+              <span class="sidenav-navlink-text ps-2">{{ navItem.text }}</span>
+            </div>
+            @if (navItem.subMenus.length > 0) {
+              <div>
+                @if (subMenu !== navItem.text) {
+                  <mat-icon>arrow_drop_down</mat-icon>
+                }
+                @if (subMenu === navItem.text) {
+                  <mat-icon>arrow_drop_up</mat-icon>
+                }
+              </div>
+            }
+          </div>
+          <!-- sub menus -->
+          <div class="{{subMenu === navItem.text ? 'show-sub-menu' : 'hide-sub-menu'}}">
+            @for (subItem of navItem.subMenus; track subItem) {
+              <div class="d-flex align-items-center sub-menu-item"
+                [routerLink]="subItem.path" routerLinkActive="active-link-sub">
+                <mat-icon>{{ subItem.icon }}</mat-icon>
+                <span class="sidenav-navlink-text ps-2">{{ subItem.text }}</span>
+              </div>
+            }
+          </div>
+        </section>
+      }
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <!-- Sidenav Ends -->
+
+  <mat-sidenav-content class="uv-sidenav-content">
+    <app-top-nav [snav]="snav"></app-top-nav>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

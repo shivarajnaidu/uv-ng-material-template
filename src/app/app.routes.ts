@@ -38,7 +38,7 @@ export const routes: Routes = [
         loadComponent: () => import('./pages/products/products.component').then(m => m.ProductsComponent),
       },
       {
-        path: '**',
+        path: '',
         pathMatch: 'full',
         redirectTo: '/dashbaord',
       },
