@@ -21,28 +21,7 @@ export const routes: Routes = [
   {
     path: '',
     component: AppShellComponent,
-    children: [
-      {
-        path: 'dashboard',
-        title: 'Dashboard',
-        loadComponent: () => import('./pages/dashboard/dashboard.component').then(m => m.DashboardComponent),
-      },
-      {
-        path: 'users',
-        title: 'Users',
-        loadComponent: () => import('./pages/users/users.component').then(m => m.UsersComponent),
-      },
-      {
-        path: 'products',
-        title: 'Products',
-        loadComponent: () => import('./pages/products/products.component').then(m => m.ProductsComponent),
-      },
-      {
-        path: '',
-        pathMatch: 'full',
-        redirectTo: '/dashbaord',
-      },
-    ]
+    loadChildren: () => import('./pages/routes'),
   },
   {
     path: '**',
