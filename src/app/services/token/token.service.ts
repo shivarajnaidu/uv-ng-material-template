@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class TokenService {
   #tokenKey = 'AUTH_TOKEN';
 
-  saveToken(data: any) {
+  saveToken(data: string) {
     window.localStorage.setItem(this.#tokenKey, data);
   }
 

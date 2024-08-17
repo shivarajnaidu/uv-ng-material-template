@@ -31,7 +31,7 @@ module.exports = tseslint.config(
         },
       ],
       "@typescript-eslint/no-explicit-any": "warn",
-      "@typescript-eslint/comma-spacing": "error",
+      "comma-spacing": "error",
       "@typescript-eslint/no-unused-vars": "error",
       "@angular-eslint/use-lifecycle-interface": ["error"],
       "@angular-eslint/no-empty-lifecycle-method": ["error"],

@@ -1,9 +1,10 @@
-import { ChangeDetectionStrategy, Component, inject, input, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { MatMenu, MatMenuTrigger } from '@angular/material/menu';
 import { MatToolbar } from '@angular/material/toolbar';
 import { AuthService } from '../../services/auth/auth.service';
 import { MatIconButton } from '@angular/material/button';
+import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-top-nav',
@@ -21,7 +22,7 @@ import { MatIconButton } from '@angular/material/button';
 })
 export class TopNavComponent {
   isLoggedIn = false;
-  snav = input<any>();
+  snav = input<MatSidenav>();
   title = '';
   #auth = inject(AuthService);
 

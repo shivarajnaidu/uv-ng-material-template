@@ -1,5 +1,5 @@
 import { MediaMatcher } from '@angular/cdk/layout';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../../services/auth/auth.service';
@@ -29,7 +29,7 @@ import { MatButton } from '@angular/material/button';
   styleUrl: './app-shell.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppShellComponent {
+export class AppShellComponent implements OnInit, OnDestroy {
   menuItems = menuList;
   isLoggedIn = false;
   subMenu = '';
