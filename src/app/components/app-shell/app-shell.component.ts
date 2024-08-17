@@ -4,7 +4,7 @@ import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../../services/auth/auth.service';
 import { menuItems as menuList } from './sidenav-items';
-import { MatNavList } from '@angular/material/list';
+import { MatListItem, MatNavList } from '@angular/material/list';
 import { MatIcon } from '@angular/material/icon';
 import { MatSidenav, MatSidenavContainer, MatSidenavContent } from '@angular/material/sidenav';
 import { TopNavComponent } from '../top-nav/top-nav.component';
@@ -23,6 +23,7 @@ import { MatButton } from '@angular/material/button';
     MatButton,
     MatSidenavContent,
     TopNavComponent,
+    MatListItem,
   ],
   templateUrl: './app-shell.component.html',
   styleUrl: './app-shell.component.css',
